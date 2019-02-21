@@ -58,6 +58,7 @@
 		C25AAB7687C6427BA2473100 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 689DF7A29FE24BA39AB7573B /* SimpleLineIcons.ttf */; };
 		B90F4BB1DAAE4256B2EB7DCC /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F0250995B3545CDA0AB6F63 /* Zocial.ttf */; };
 		9639A32A0082479F9CB376FD /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B37D53AA9EC94313A7687A15 /* libRNImagePicker.a */; };
+		8FB2825121DD43CC8A2A4C6D /* libRNSharedConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F82D34C6B7F4A0E90BEDADF /* libRNSharedConfig.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,6 +386,8 @@
 		7F0250995B3545CDA0AB6F63 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		9FC44B9A65B24CAE86F0677A /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; name = "RNImagePicker.xcodeproj"; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		B37D53AA9EC94313A7687A15 /* libRNImagePicker.a */ = {isa = PBXFileReference; name = "libRNImagePicker.a"; path = "libRNImagePicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		67816553AF8F450683CE267C /* RNSharedConfig.xcodeproj */ = {isa = PBXFileReference; name = "RNSharedConfig.xcodeproj"; path = "../node_modules/react-native-shared-config/ios/RNSharedConfig.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2F82D34C6B7F4A0E90BEDADF /* libRNSharedConfig.a */ = {isa = PBXFileReference; name = "libRNSharedConfig.a"; path = "libRNSharedConfig.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +417,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				9639A32A0082479F9CB376FD /* libRNImagePicker.a in Frameworks */,
+				8FB2825121DD43CC8A2A4C6D /* libRNSharedConfig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +608,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9FC44B9A65B24CAE86F0677A /* RNImagePicker.xcodeproj */,
+				67816553AF8F450683CE267C /* RNSharedConfig.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1276,11 +1281,11 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GekuApp.app/GekuApp";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Debug;
@@ -1302,11 +1307,11 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GekuApp.app/GekuApp";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Release;
@@ -1330,6 +1335,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Debug;
@@ -1352,6 +1358,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Release;
@@ -1381,11 +1388,11 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Debug;
@@ -1415,11 +1422,11 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Release;
@@ -1448,11 +1455,11 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Debug;
@@ -1481,11 +1488,11 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-shared-config/ios/**",
 				);
 			};
 			name = Release;

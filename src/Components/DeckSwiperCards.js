@@ -41,7 +41,8 @@ class DeckSwiperCardComponent extends PureComponent {
                                         <Thumbnail
                                             source={{uri: item.picture.thumbnail}}/>
                                         <Body>
-                                        <Text>{item.name.first} {item.name.last}</Text>
+                                        <Text style={{fontWeight: 'bold'}}>{item.name.first}</Text>
+                                            <Text note>{new Date().toDateString()}</Text>
                                         </Body>
                                     </Left>
                                 </CardItem>

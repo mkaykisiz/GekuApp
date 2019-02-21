@@ -13,7 +13,7 @@ const menuIcon = ({selected, title}) => (
 );
 
 const App = () => {
-    const normalNav = {navigationBarStyle: {backgroundColor: 'fff'}};
+    const normalNav = {navigationBarStyle: {backgroundColor: '#8231f8',}};
     return (
         <Router>
             <Scene key="root">
@@ -25,16 +25,16 @@ const App = () => {
                        }} {...normalNav}>
                     <Scene key="mainPage"
                            component={MainPage}
-
-                           title="Geku"
-                    />
-                    <Scene key="cretatePost"
-                           component={CreatePost}
-                           title="Share It"
                            initial
+                           title="Geku"
                     />
                 </Scene>
 
+                <Scene key="cretatePost"
+                       component={CreatePost}
+
+                       hideNavBar={true}
+                />
 
             </Scene>
         </Router>

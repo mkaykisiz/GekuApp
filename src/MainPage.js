@@ -32,7 +32,6 @@ export default class MainPage extends React.Component {
             .then((response) => response.json())
             .then((responseJson) => {
                 let results = responseJson.results;
-                console.log(results);
                 if (results.length > 0) {
                     this.setState({
                         dataSource: [...this.state.dataSource, ...results],
@@ -40,11 +39,9 @@ export default class MainPage extends React.Component {
                         isLoaded: true
                     });
                 } else {
-                    if (this.state.dataSource.length > 3) {
-                        this.setState({
-                            showContent: false
-                        })
-                    }
+                    this.setState({
+                        showContent: false
+                    })
                 }
             })
             .catch((error) => {
@@ -54,13 +51,10 @@ export default class MainPage extends React.Component {
 
     onSwipe = (direction) => {
         // set value
-        console.log("value: " + direction);
         this.index += 1;
-        console.log("resultCount: " + this.resultCount + " pageNo: " + this.pageNo + " index: " + this.index);
         if (((this.resultCount * this.pageNo) - this.index) === 3) {
             this.pageNo = this.pageNo + 1;
             this.getPosts(this.resultCount, this.pageNo);
-            console.log("page arttı")
         }
     };
 
@@ -86,7 +80,7 @@ export default class MainPage extends React.Component {
                         active={this.state.active}
                         direction="up"
                         containerStyle={{}}
-                        style={{backgroundColor: '#5067FF'}}
+                        style={{backgroundColor: '#8231f8'}}
                         position="bottomRight"
                         onPress={() => Actions.cretatePost()}>
                         <Icon type="FontAwesome" name="plus"/>
