@@ -177,7 +177,7 @@ export default class CreatePost extends PureComponent {
                                             <TextInput
                                                 style={{
                                                     fontWeight: 'bold',
-                                                    height: 30
+                                                    height: 40
                                                 }}
                                                 maxLength={40}
                                                 onChangeText={(username) => this.setState({username})}
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         margin: 5,
         borderWidth: 1,
-        borderColor: '#8231f8',
+        borderColor: '#ca30ff',
         borderRadius: 10,
         height: 100,
         padding: 10,
@@ -260,6 +260,6 @@ const styles = StyleSheet.create({
         textAlign: 'right'
     },
     sendButton: {
-        backgroundColor: '#8231f8'
+        backgroundColor: '#ca30ff'
     }
 });

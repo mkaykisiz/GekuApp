@@ -11,8 +11,9 @@ import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import {View, Fab, Button, Icon} from 'native-base';
-import Loading from "./Components/LoadingComponent";
-import DeckSwiperCard from "./Components/DeckSwiperCards";
+import Loading from "../Components/LoadingComponent";
+import DeckSwiperCard from "../Components/DeckSwiperCards";
+import * as AllConstants from '../AllConstants.js';
 
 export default class MainPage extends React.Component {
     constructor(props) {
@@ -28,10 +29,10 @@ export default class MainPage extends React.Component {
     }
 
     getPosts(resultCount, pageNumber) {
-        return fetch('https://randomuser.me/api/?results=' + resultCount + '&page=' + pageNumber)
+        return fetch(AllConstants.ENV_URL + '/posts/?page_number=' + pageNumber +
+            '&per_page=' + resultCount)
             .then((response) => response.json())
-            .then((responseJson) => {
-                let results = responseJson.results;
+            .then((results) => {
                 if (results.length > 0) {
                     this.setState({
                         dataSource: [...this.state.dataSource, ...results],
