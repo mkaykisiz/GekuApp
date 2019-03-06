@@ -39,10 +39,10 @@ class DeckSwiperCardComponent extends PureComponent {
                                 <CardItem>
                                     <Left>
                                         <Thumbnail
-                                            source={{uri: item.picture.thumbnail}}/>
+                                            source={{uri: item.image_links[0]}}/>
                                         <Body>
-                                        <Text style={{fontWeight: 'bold'}}>{item.name.first}</Text>
-                                            <Text note>{new Date().toDateString()}</Text>
+                                        <Text style={{fontWeight: 'bold'}}>{item.username}</Text>
+                                            <Text note>{item.created_at}</Text>
                                         </Body>
                                     </Left>
                                 </CardItem>
@@ -53,13 +53,11 @@ class DeckSwiperCardComponent extends PureComponent {
                                             height: imageHeight,
                                             flex: 1
                                         }}
-                                        source={{uri: item.picture.large}}/>
+                                        source={{uri: item.image_links[0]}}/>
                                 </CardItem>
                                 <CardItem>
                                     <Body>
-                                    <Text>{item.name.first} {item.name.last}
-                                        {item.name.first} {item.name.last}
-                                        {item.name.email} {item.picture.large}
+                                    <Text>{item.text}
                                     </Text>
                                     </Body>
                                 </CardItem>
