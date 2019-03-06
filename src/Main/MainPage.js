@@ -11,9 +11,9 @@ import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import {View, Fab, Button, Icon} from 'native-base';
-import Loading from "./Components/LoadingComponent";
-import DeckSwiperCard from "./Components/DeckSwiperCards";
-import * as AllConstants from './AllConstants.js';
+import Loading from "../Components/LoadingComponent";
+import DeckSwiperCard from "../Components/DeckSwiperCards";
+import * as AllConstants from '../AllConstants.js';
 
 export default class MainPage extends React.Component {
     constructor(props) {
