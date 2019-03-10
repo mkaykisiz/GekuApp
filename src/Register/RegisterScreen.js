@@ -35,7 +35,6 @@ export default class RegisterScreen extends Component {
     render() {
         return (
             <Wallpaper>
-                <Text>{this.state.username}</Text>
                 <Logo/>
                 <Form
                     getEmail={this.getEmail.bind(this)}
