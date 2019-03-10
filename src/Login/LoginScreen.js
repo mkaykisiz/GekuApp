@@ -7,14 +7,38 @@ import ButtonSubmit from './Components/ButtonSubmit';
 import SignupSection from './Components/SignupSection';
 
 export default class LoginScreen extends Component {
-  render() {
-    return (
-      <Wallpaper>
-        <Logo />
-        <Form />
-        <ButtonSubmit />
-        <SignupSection />
-      </Wallpaper>
-    );
-  }
+    constructor() {
+        super();
+    }
+
+    state = {
+        email: "",
+        password: "",
+    };
+
+
+    getEmail(value) {
+        this.setState({email: value})
+    };
+
+    getPassword(value) {
+        this.setState({password: value})
+    };
+
+    render() {
+        return (
+            <Wallpaper>
+                <Logo/>
+                <Form
+                    getEmail={this.getEmail.bind(this)}
+                    getPassword={this.getPassword.bind(this)}
+                />
+                <ButtonSubmit
+                    email={this.state.email}
+                    password={this.state.password}
+                />
+                <SignupSection/>
+            </Wallpaper>
+        );
+    }
 }

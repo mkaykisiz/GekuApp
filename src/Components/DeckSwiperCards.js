@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {View, Text, Image, Dimensions} from "react-native";
+import {View, Text, Image, Dimensions, TouchableOpacity} from "react-native";
 
 import {
     Body,
@@ -8,6 +8,7 @@ import {
     CardItem,
     DeckSwiper,
     Left,
+    Icon,
     Thumbnail
 } from "native-base";
 
@@ -30,6 +31,7 @@ class DeckSwiperCardComponent extends PureComponent {
             <View>
                 {this.props.showContent === true ?
                     <DeckSwiper
+                        ref={(c) => this._deckSwiper = c}
                         dataSource={this.props.dataSource}
                         looping={false}
                         onSwipeRight={() => this.props.onSwipe('right')}
@@ -41,8 +43,9 @@ class DeckSwiperCardComponent extends PureComponent {
                                         <Thumbnail
                                             source={{uri: item.image_links[0]}}/>
                                         <Body>
-                                        <Text style={{fontWeight: 'bold'}}>{item.username}</Text>
-                                            <Text note>{item.created_at}</Text>
+                                        <Text
+                                            style={{fontWeight: 'bold'}}>{item.username}</Text>
+                                        <Text note>{item.created_at.split('T')[0]}</Text>
                                         </Body>
                                     </Left>
                                 </CardItem>
@@ -56,9 +59,51 @@ class DeckSwiperCardComponent extends PureComponent {
                                         source={{uri: item.image_links[0]}}/>
                                 </CardItem>
                                 <CardItem>
+                                    <View style={{flexDirection: "row"}}>
+                                        <TouchableOpacity style={{
+                                                flex: 1,
+                                                flexDirection: 'row'
+                                            }}
+                                            onPress={() => this._deckSwiper._root.swipeLeft()}>
+                                            <View style={{
+                                                flex: 1,
+                                                flexDirection: 'row'
+                                            }}>
+                                                <Icon type="FontAwesome"
+                                                      name="thumbs-down"
+                                                      style={{
+                                                          color: '#F035E0',
+                                                          fontSize: 18
+                                                      }}/>
+                                                <Text>unlikes:{item.unlikes.length}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={{
+                                                flex: 1,
+                                                flexDirection: 'row',
+                                                right: 0,
+                                                position: 'absolute'
+                                            }}
+                                            onPress={() => this._deckSwiper._root.swipeRight()}>
+                                            <View style={{
+                                                flex: 1,
+                                                flexDirection: 'row',
+                                                right: 0,
+                                                position: 'absolute'
+                                            }}>
+                                                <Icon type="FontAwesome"
+                                                      name="thumbs-up" style={{
+                                                    color: '#F035E0',
+                                                    fontSize: 18
+                                                }}/>
+                                                <Text>likes: {item.likes.length}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                </CardItem>
+                                <CardItem>
                                     <Body>
-                                    <Text>{item.text}
-                                    </Text>
+                                    <Text>{item.text}</Text>
                                     </Body>
                                 </CardItem>
                             </Card>

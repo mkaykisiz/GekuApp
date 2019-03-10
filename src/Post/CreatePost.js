@@ -36,6 +36,7 @@ import {Actions} from "react-native-router-flux";
 
 
 const options = {
+    quality: 0.3,
     title: 'Select Avatar',
     storageOptions: {
         skipBackup: true,
@@ -60,13 +61,21 @@ export default class CreatePost extends PureComponent {
         text: "",
         textLength: maxContentLength,
         isLoading: null,
-        username: null
+        username: null,
+        user_token: null
     };
 
     componentDidMount() {
-        const local_username = RNSharedConfig.getItem('username');
-        const username = (local_username === null) ? local_username : "Anonim";
-        this.setState({username: username});
+        RNSharedConfig.getItem('user_token').then((res) => {
+            if (res === null) {
+                Actions.loginScreen();
+            } else {
+                this.setState({user_token: res});
+                const local_username = RNSharedConfig.getItem('username');
+                const username = (local_username === null) ? local_username : "Anonim";
+                this.setState({username: username});
+            }
+        });
     }
 
     changeProfileImage = () => {
@@ -100,7 +109,8 @@ export default class CreatePost extends PureComponent {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.state.user_token
             },
             body: JSON.stringify({
                 username: this.state.username,
@@ -119,11 +129,12 @@ export default class CreatePost extends PureComponent {
             const payload = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': 'Bearer ' + this.state.user_token
                 },
                 body: formData
             };
-            fetch(AllConstants.ENV_URL + '/posts/' + data._id.toString() + '/image', payload
+            fetch(AllConstants.ENV_URL + '/posts/' + data._id.toString() + '/image', payload,
             ).then(img_response => img_response.json()).then(img_data => {
                 this.setState({isLoading: false});
                 Actions.pop();

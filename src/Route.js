@@ -26,7 +26,6 @@ const App = () => {
                 />
                 <Scene key="registerScreen"
                        component={registerScreen}
-                       initial
                        hideNavBar={true}
                 />
                 <Scene key="drawer" drawer contentComponent={Menu}

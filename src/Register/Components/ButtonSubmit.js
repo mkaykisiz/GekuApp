@@ -60,7 +60,7 @@ export default class ButtonSubmit extends Component {
     };
     fetch(AllConstants.ENV_URL + `/users/`, payload
     ).then(response => {
-      if (response.statusCode === 201){
+      if (response.ok){
         Actions.loginPage();
       }else{
         alert("Register Error, Please try again later!");
